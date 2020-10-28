@@ -1,0 +1,239 @@
+<html>
+<head>
+<title>Castle Cats</title>
+<style>
+.row {
+  display: flex;
+  width: 100%;
+}
+
+.column {
+  width: 25%;
+}
+</style>
+<script>
+let cats = [
+//common
+['Conan','Catniss','Francis','Juliet'],
+['','','Bob',''],
+['','','Purrcilla',''],
+['','','','Benedict'],
+['Dory','Courage','Kyle',''],
+['','','',''],
+//rare
+['','','','Molotov'],
+['Grubb','Kai','',''],
+['','Beans','Blink',''],
+['','','','Maximus'],
+['','','',''],
+['','Coco','','Feoh'],
+//mythic
+['Luna Sparkle','','',''],
+['','Bunny','Navi','Redmane'],
+['','Nessie','',''],
+['','','',''],
+['','','Cleo',''],
+['','','',''],
+//legendary
+['','','','','']
+],
+quotes = [
+//common
+[
+'Conan is the bravest knight of all... and he totally did not write this himself.',
+'If she gets the chance, Catniss will volunteer.',
+"If it's shiny, Francis won't think twice about picking it up. Even if it smells.",
+"Make sure to check your pockets after greeting Juliet. She's known for her sleight of paw."
+],
+[
+'',
+'',
+'"But no, it can\'t be true. I could fly if I wanted to."',
+''
+],
+[
+'',
+'',
+"Purrcilla is working hard on a Love Spell. She won't tell who her target is.",
+''
+],
+[
+'',
+'',
+'',
+'Elementary, dear Guild Leader, Benedict knows the answer to all mysteries.'
+],
+[
+'Dory may look innocent and small, but she packs a big punch!',
+'Courage is filthy rich, and he knows it.',
+'Kyle gave himself his scar, just to look cool.',
+''
+],
+[
+'',
+'',
+'',
+''
+],
+//rare
+[
+'',
+'',
+'',
+'Molotov was happy when he first heard a drink had been named after him. Until he tried it.'
+],
+[
+'Grubb has a habit of poking at sheep. He says they explode if you do so.',
+"Kai has the ability to transform into any animal. Her favorite form is a wolf, but don't tell the others.",
+'',
+''
+],
+[
+'',
+'"Coffee\'s not a drink, it\s a warm and comfy hug, now I feel alive" ~ haiku by Beans',
+'Blink is faster than any blue hedgehog could ever be.',
+''
+],
+[
+'',
+'',
+'',
+'Maximus wants to be with the strongest and mightiest of the hero guilds. Better not tell him about the Mighty Lions...'
+],
+[
+'',
+'',
+'',
+''
+],
+[
+'',
+'As a fashion genius, it was not hard for Coco to become one of the richest cats in Catania.',
+'',
+"Feoh's favorite pastime is to sit around a campfire at night and make sone delicious, ultra-sweet s'mores."
+],
+//mythic
+[
+"Sometimes Luna Sparkle glitters. That's normal.",
+'',
+'',
+''
+],
+[
+'',
+'Bunny was chosen to become a guardian of the moon, defending Catania from evil.',
+'Just look at him. He will never save the world.',
+'Redmane travels between worlds, delivering justice, while in search for the Gathering.'
+],
+[
+'',
+"Nessie's voice is so enchanting, if she sings to you, sha can make you do anything.",
+'',
+''
+],
+[
+'',
+'',
+'',
+''
+],
+[
+'',
+'',
+'Young and adventurous, Cleo travels Catania to spread peace and beauty.',
+''
+],
+[
+'',
+'',
+'',
+''
+],
+//legendary
+[
+'',
+''
+]
+];
+</script>
+</head>
+<body>
+<script>
+document.body.style.fontFamily      = 'Meiryo UI';
+document.body.style.fontWeight      = 'bold';
+document.body.style.backgroundColor = 'lightyellow';
+function newColumn(img, name) {
+  let column = document.createElement('div');
+  column.className = 'column';
+  column.appendChild(img);
+  column.appendChild(name);
+  return column;
+}
+function newTitle(t) {
+  let tt = document.createElement('h1');
+  tt.innerHTML = t;
+  tt.style.textAlign  = 'left';
+  tt.style.textIndent = '1em';
+  tt.style.color      = 'rgb(0, 200, 255)';
+  tt.style.textShadow = '0px 0px 30px lightblue';
+  tt.style.fontSize   = '60px';
+  tt.style.cursor     = 'default';
+  return tt;
+}
+function newCatName(name) {
+  let p = document.createElement('p');
+  p.innerHTML        = name;
+  p.style.color      = 'rgb(0, 200, 255)';
+  p.style.fontSize   = '30px';
+  p.style.margin     = '0';
+  p.style.padding    = '0';
+  p.style.textShadow = '0px 0px 15px lightblue';
+  p.style.textAlign  = 'center';
+  p.style.cursor     = 'default';
+  return p;
+}
+function newImg(src, title) {
+  let img = document.createElement('img');
+  img.src             = (src || 'Unknown') + '.svg';
+  img.title           = title;
+  img.style.alignSelf = 'center';
+  img.style.width     = '100%';
+  img.style.cursor    = 'pointer';
+  return img;
+}
+function newRow() {
+  let r = document.createElement('div');
+  r.className = 'row';
+  return r;
+}
+document.body.appendChild(newTitle('Common'));
+for(z = 0; z < 6; z++) {
+  let r = newRow();
+  for(x = 0; x < 4; x++) {
+    r.appendChild(newColumn(newImg(cats[z][x], quotes[z][x]), newCatName(cats[z][x])));
+  };
+  document.body.appendChild(r);
+};
+document.body.appendChild(newTitle('Rare'));
+for(z = 6; z < 12; z++) {
+  let r = newRow(), r1 = newRow();;
+  for(x = 0; x < 4; x++) {
+    r.appendChild(newColumn(newImg(cats[z][x], quotes[z][x]), newCatName(cats[z][x])));
+  };
+  document.body.appendChild(r);
+};
+document.body.appendChild(newTitle('Mythic'));
+for(z = 12; z < 18; z++) {
+  let r = newRow();
+  for(x = 0; x < 4; x++) {
+    r.appendChild(newColumn(newImg(cats[z][x], quotes[z][x]), newCatName(cats[z][x])));
+  };
+  document.body.appendChild(r);
+};
+document.body.appendChild(newTitle('Legendary'));
+let r = newRow();
+for(z = 0; z < 5; z++) {
+  r.appendChild(newColumn(newImg(cats[18][z], quotes[18][z]), newCatName(cats[18][z])));
+};
+document.body.appendChild(r);
+</script>
